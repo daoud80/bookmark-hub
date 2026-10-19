@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bookmark Hub</title>
+  <link rel="stylesheet" href="hub.css">
+</head>
+<body>
+  <header class="top">
+    <div class="row">
+      <div class="brand">
+        <span class="rule" aria-hidden="true"></span>
+        <div>
+          <h1 id="title">Bookmark Hub</h1>
+          <div class="subtitle" id="subtitle"></div>
+        </div>
+      </div>
+      <input id="q" type="search" placeholder="Search name, note or address   ( / )" autocomplete="off" aria-label="Search bookmarks">
+      <button id="settingsBtn" class="icon-btn" type="button" aria-label="Settings" title="Settings">&#9881;</button>
+    </div>
+    <div class="chips" id="chips" role="group" aria-label="Folders"></div>
+  </header>
+
+  <main id="main"></main>
+
+  <footer class="foot">
+    <span id="count" aria-live="polite"></span>
+  </footer>
+
+  <dialog id="editor" aria-labelledby="editorTitle">
+    <form method="dialog" id="editorForm">
+      <h2 id="editorTitle">Edit note</h2>
+      <p class="muted" id="editorName"></p>
+      <p class="muted small" id="editorUrl"></p>
+      <label for="editorText">Note (shown under the name)</label>
+      <textarea id="editorText" rows="3" maxlength="300"></textarea>
+      <div class="actions">
+        <button type="button" id="editorClear" class="btn ghost">Clear</button>
+        <span class="spacer"></span>
+        <button type="button" id="editorCancel" class="btn">Cancel</button>
+        <button type="submit" id="editorSave" class="btn primary" value="save">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="settings" aria-labelledby="settingsTitle">
+    <form method="dialog" id="settingsForm">
+      <h2 id="settingsTitle">Settings</h2>
+
+      <label for="setTitle">Page title</label>
+      <input id="setTitle" type="text" maxlength="60">
+
+      <label for="setSubtitle">Subtitle (optional, for example a team or your name)</label>
+      <input id="setSubtitle" type="text" maxlength="100">
+
+      <div class="two">
+        <div>
+          <label for="setAccent">Accent colour</label>
+          <input id="setAccent" type="color">
+        </div>
+        <div>
+          <label for="setTheme">Appearance</label>
+          <select id="setTheme">
+            <option value="system">Match system</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </div>
+      </div>
+
+      <label class="check"><input id="setNewTab" type="checkbox"> Open bookmarks in a new tab</label>
+
+      <h3>Backup</h3>
+      <p class="muted small">Notes and settings are stored only in this browser profile. Export them to back up or move to another computer.</p>
+      <div class="actions left">
+        <button type="button" id="exportBtn" class="btn">Export</button>
+        <button type="button" id="importBtn" class="btn">Import</button>
+        <input id="importFile" type="file" accept="application/json,.json" hidden>
+      </div>
+      <p class="muted small" id="backupMsg" role="status"></p>
+
+      <div class="actions">
+        <button type="button" id="resetBtn" class="btn ghost">Reset settings</button>
+        <span class="spacer"></span>
+        <button type="submit" class="btn primary" value="close">Done</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="hub.js"></script>
+</body>
+</html>
