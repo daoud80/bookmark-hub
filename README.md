@@ -62,6 +62,7 @@ Install it in the browser **profile** you want. Extensions belong to a profile, 
 - Only `http` and `https` bookmarks are shown. Bookmarklets (`javascript:`) and browser pages (`chrome://`, `edge://`) are skipped.
 - Notes are stored in the browser profile and are **not** synced between computers. Use Export and Import to move them.
 - Icons come from the browser. For a site the browser has no icon for yet (for example a bookmark you have never visited), you will see the browser's default icon.
+- **Edge may say it "turned off" the extension** because it changes your new tab page. That is Edge being careful with extensions loaded from a folder. Click **Turn on** to keep the new tab page, or use the toolbar-only build, which never asks. Store-installed copies do not show this prompt.
 - Built for Chromium-based browsers (Manifest V3). It is tested in Chromium; Chrome and Edge should work the same way, and reports from other Chromium browsers are welcome. Firefox and Safari are not supported.
 
 ## Development
@@ -88,6 +89,10 @@ Add `--screenshots docs` to regenerate the screenshots with the sample data.
 ## Contributing
 
 Issues and pull requests are welcome. Please keep the extension free of network requests, remote code and extra permissions unless there is a strong reason, and say why in the pull request.
+
+## Author
+
+Made by David Nino. [LinkedIn](https://www.linkedin.com/in/david-nino-profile/) · [Report a problem](https://github.com/daoud80/bookmark-hub/issues)
 
 ## Licence
 

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Bookmark Hub",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Turn your bookmarks into a searchable start page with icons and your own notes. Updates live. No servers, no tracking.",
   "minimum_chrome_version": "111",
   "permissions": ["bookmarks", "favicon", "storage"],

@@ -165,6 +165,9 @@ def main():
 
         # settings
         page.click("#settingsBtn")
+        links = page.locator("#settings .about a").evaluate_all("els => els.map(a => a.href)")
+        check("about links present", len(links) == 3 and all(l.startswith("https://") for l in links), str(links))
+        page.locator("#settings").screenshot(path=os.environ["ABOUT_SHOT"]) if os.environ.get("ABOUT_SHOT") else None
         page.fill("#setTitle", "My Start Page")
         page.fill("#setSubtitle", "Sample Team")
         page.select_option("#setTheme", "dark")
@@ -181,7 +184,7 @@ def main():
         bad.write_text(json.dumps({"app": "bookmark-hub", "settings": {"accent": "red;}</style>", "theme": "neon", "title": 5},
                                    "notes": {"https://x.example/": "y" * 5000, "https://z.example/": 7}}))
         page.set_input_files("#importFile", str(bad))
-        page.wait_for_function("document.getElementById('backupMsg').textContent.includes('Imported')")
+        page.locator('#backupMsg', has_text='Imported').wait_for()
         n = page.evaluate("chrome.storage.local.get('notes').then(r => r.notes)")
         check("import sanitises values", len(n.get("https://x.example/", "")) == 300 and "https://z.example/" not in n)
         check("import rejects bad settings", page.evaluate("document.documentElement.style.getPropertyValue('--accent')") == "#4f46e5")
